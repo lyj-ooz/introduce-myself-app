@@ -12,8 +12,7 @@ interface ICarousel {
 
 const styles = StyleSheet.create({
   container: {
-    height: '60%',
-    justifyContent: 'center',
+    height: '100%',
     alignItems: 'center',
   },
 
