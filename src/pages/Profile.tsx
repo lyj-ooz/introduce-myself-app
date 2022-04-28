@@ -4,7 +4,9 @@ import {
   View,
   useWindowDimensions,
   StyleSheet,
-  ScrollView,
+  SafeAreaView,
+  FlatList,
+  TouchableOpacity,
 } from 'react-native';
 import ImageCarousel from '../components/imagecarousel/ImageCarousel';
 import user from '../../model/user';
@@ -37,7 +39,7 @@ const PAGES = [
 ];
 
 const styles = StyleSheet.create({
-  textWrapper: {
+  contentWrapper: {
     paddingVertical: 10,
     paddingHorizontal: 15,
   },
@@ -54,14 +56,25 @@ const styles = StyleSheet.create({
   },
 });
 
-function Profile() {
+function Profile({navigation}) {
   const window = useWindowDimensions();
 
+  const renderItem = ({item}) => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('ProfileDetails', {
+          myStory: item,
+        });
+      }}>
+      <Text>{item.title}</Text>
+    </TouchableOpacity>
+  );
+
   return (
-    <ScrollView>
+    <SafeAreaView style={{flex: 0.5}}>
       <ImageCarousel pages={photo} pageWidth={window.width} />
 
-      <View style={styles.textWrapper}>
+      <View style={styles.contentWrapper}>
         <CustomText
           customTextType="large"
           customTextStyle={styles.userNameText}>
@@ -82,8 +95,10 @@ function Profile() {
           customTextStyle={styles.userBriefIntro}>
           {user.briefIntro}
         </CustomText>
+
+        <FlatList data={user.longIntro} renderItem={renderItem} />
       </View>
-    </ScrollView>
+    </SafeAreaView>
   );
 }
 
