@@ -1,16 +1,20 @@
 import React from 'react';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import Profile from './src/pages/Profile';
 import Careers from './src/pages/Careers';
 import Etc from './src/pages/Etc';
 
 const Tab = createBottomTabNavigator();
+const navigationTheme = {
+  ...DefaultTheme,
+  colors: {...DefaultTheme.colors, background: '#fff'},
+};
 
 function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
       <Tab.Navigator>
         <Tab.Screen
           name="Profile"
