@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Text,
   View,
   useWindowDimensions,
   StyleSheet,
@@ -53,6 +52,11 @@ const styles = StyleSheet.create({
   userBriefIntro: {
     paddingVertical: 7,
   },
+  userIntroTitle: {
+    color: 'green',
+    fontWeight: '200',
+    paddingVertical: 7,
+  },
 });
 
 function Profile({navigation}) {
@@ -90,10 +94,14 @@ function Profile({navigation}) {
               key={intro.title}
               onPress={() => {
                 navigation.navigate('ProfileDetails', {
-                  myStory: intro,
+                  detail: intro,
                 });
               }}>
-              <Text>{intro.title}</Text>
+              <CustomText
+                customTextType="medium"
+                customTextStyle={styles.userIntroTitle}>
+                {`🙋‍♀️ ${intro.title}`}
+              </CustomText>
             </TouchableOpacity>
           );
         })}
