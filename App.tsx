@@ -5,8 +5,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Profile from './src/pages/Profile';
 import Careers from './src/pages/Careers';
 import Etc from './src/pages/Etc';
-
 import ProfileDetails from './src/pages/ProfileDetails';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 const navigationTheme = {
@@ -27,7 +27,20 @@ function ProfileStackScreen() {
 function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={({route}) => ({
+          tabBarIcon: ({focused, color, size}) => {
+            let iconName;
+            if (route.name === 'Profile') {
+              iconName = focused ? 'ios-person' : 'ios-person-outline';
+            } else if (route.name === 'Careers') {
+              iconName = focused ? 'ios-briefcase' : 'ios-briefcase-outline';
+            } else {
+              iconName = focused ? 'ios-globe' : 'ios-globe-outline';
+            }
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}>
         <Tab.Screen
           name="Profile"
           component={ProfileStackScreen}
