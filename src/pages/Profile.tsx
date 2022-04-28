@@ -4,9 +4,8 @@ import {
   View,
   useWindowDimensions,
   StyleSheet,
-  SafeAreaView,
-  FlatList,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import ImageCarousel from '../components/imagecarousel/ImageCarousel';
 import user from '../../model/user';
@@ -59,19 +58,8 @@ const styles = StyleSheet.create({
 function Profile({navigation}) {
   const window = useWindowDimensions();
 
-  const renderItem = ({item}) => (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.navigate('ProfileDetails', {
-          myStory: item,
-        });
-      }}>
-      <Text>{item.title}</Text>
-    </TouchableOpacity>
-  );
-
   return (
-    <SafeAreaView style={{flex: 0.5}}>
+    <ScrollView>
       <ImageCarousel pages={photo} pageWidth={window.width} />
 
       <View style={styles.contentWrapper}>
@@ -96,9 +84,21 @@ function Profile({navigation}) {
           {user.briefIntro}
         </CustomText>
 
-        <FlatList data={user.longIntro} renderItem={renderItem} />
+        {user.longIntro.map(intro => {
+          return (
+            <TouchableOpacity
+              key={intro.title}
+              onPress={() => {
+                navigation.navigate('ProfileDetails', {
+                  myStory: intro,
+                });
+              }}>
+              <Text>{intro.title}</Text>
+            </TouchableOpacity>
+          );
+        })}
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
