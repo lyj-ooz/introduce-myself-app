@@ -12,7 +12,8 @@ interface ICarousel {
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%',
+    // height 값을 퍼센트로 주면 이 컴포넌트 바깥 ScrollView의 스크롤이 내려가지 않음
+    // height: '100%',
     alignItems: 'center',
   },
 
@@ -48,7 +49,7 @@ function ImageCarousel({pages, pageWidth, gap = 0, offset = 0}: ICarousel) {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {height: window.height / 3}]}>
       <FlatList
         automaticallyAdjustContentInsets={false}
         contentContainerStyle={{
