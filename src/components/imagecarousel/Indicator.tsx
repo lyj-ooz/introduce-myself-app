@@ -8,7 +8,7 @@ interface I_Indicator {
 const styles = StyleSheet.create({
   indicator: {
     marginVertical: 4,
-    marginHorizontal: 0,
+    marginHorizontal: 2,
     width: 6,
     height: 6,
     borderRadius: 3,
