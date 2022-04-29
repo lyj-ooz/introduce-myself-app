@@ -20,7 +20,11 @@ function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator>
       <ProfileStack.Screen name="Profile" component={Profile} />
-      <ProfileStack.Screen name="ProfileDetails" component={ProfileDetails} />
+      <ProfileStack.Screen
+        name="ProfileDetails"
+        component={ProfileDetails}
+        options={{title: ''}}
+      />
     </ProfileStack.Navigator>
   );
 }
