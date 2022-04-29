@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -7,6 +7,7 @@ import Careers from './src/pages/Careers';
 import Etc from './src/pages/Etc';
 import ProfileDetails from './src/pages/ProfileDetails';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import SplashScreen from 'react-native-splash-screen';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,13 +31,17 @@ function ProfileStackScreen() {
 }
 
 function App() {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <NavigationContainer theme={navigationTheme}>
       <Tab.Navigator
         screenOptions={({route}) => ({
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
-            if (route.name === 'Profile') {
+            if (route.name === 'ProfileStackScreen') {
               iconName = focused ? 'ios-person' : 'ios-person-outline';
             } else if (route.name === 'Careers') {
               iconName = focused ? 'ios-briefcase' : 'ios-briefcase-outline';
