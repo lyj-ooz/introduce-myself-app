@@ -9,6 +9,7 @@ import ProfileDetails from './src/pages/ProfileDetails';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
+
 const navigationTheme = {
   ...DefaultTheme,
   colors: {...DefaultTheme.colors, background: '#fff'},
@@ -51,7 +52,7 @@ function App() {
           component={Careers}
           options={{title: '경력사항'}}
         />
-        <Tab.Screen name="Etc" component={Etc} options={{title: '기타..'}} />
+        <Tab.Screen name="Etc" component={Etc} options={{headerShown: false}} />
       </Tab.Navigator>
     </NavigationContainer>
   );
