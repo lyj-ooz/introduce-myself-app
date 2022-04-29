@@ -54,7 +54,7 @@ function App() {
         <Tab.Screen
           name="ProfileStackScreen"
           component={ProfileStackScreen}
-          options={{headerShown: false}}
+          options={{headerShown: false, tabBarLabel: '내 프로필'}}
         />
         <Tab.Screen
           name="Careers"
