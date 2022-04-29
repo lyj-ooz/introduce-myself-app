@@ -1,10 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-interface I_Indicator {
-  focused: boolean;
-}
-
 const styles = StyleSheet.create({
   indicator: {
     marginVertical: 4,
@@ -15,7 +11,7 @@ const styles = StyleSheet.create({
   },
 });
 
-function Indicator({focused}: I_Indicator) {
+function Indicator({focused}: {focused: boolean}) {
   return (
     <View
       style={[
