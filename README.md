@@ -8,14 +8,16 @@
 
 맨 처음에 앱을 어떻게 만들지 아래처럼 대강 구성해봤다.
 
-<img src="https://github.com/lyj-ooz/my-screenshots/blob/master/plan.jpg" width="250" height="150"/>
+<img src="https://github.com/lyj-ooz/my-screenshots/blob/master/plan.jpg" width="450" height="400"/>
 
 앱의 화면들은 아래처럼 크게 4 부분으로 구성되어 있다.
 
+<div style='display: flex'>
 <img src="https://github.com/lyj-ooz/my-screenshots/blob/master/1.png" width="150" height="300"/>
 <img src="https://github.com/lyj-ooz/my-screenshots/blob/master/1-1.png" width="150" height="300"/>
 <img src="https://github.com/lyj-ooz/my-screenshots/blob/master/2.png" width="150" height="300"/>
 <img src="https://github.com/lyj-ooz/my-screenshots/blob/master/3.png" width="150" height="300"/>
+</div>
 
 ## 😅 어려웠던 점
 
