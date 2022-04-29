@@ -1,22 +1,11 @@
 import React from 'react';
 import {Text, StyleSheet, TextStyle} from 'react-native';
 
-/**
-[prop1]
-customTextType
-큰 사이즈
-중간 사이즈
-작은 사이즈
-
-[prop2] 그때그때 설정할 수 있는것 customTextStyle
-텍스트 컬러, 마진 or 패딩, fontWeight
- */
-
-type CustomTextProps = {
+interface CustomTextProps {
   customTextStyle?: TextStyle | TextStyle[];
   customTextType?: 'large' | 'medium' | 'small';
   children?: React.ReactNode;
-};
+}
 
 const styles = StyleSheet.create({
   largeText: {
