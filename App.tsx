@@ -43,7 +43,7 @@ function App() {
           },
         })}>
         <Tab.Screen
-          name="Profile"
+          name="ProfileStackScreen"
           component={ProfileStackScreen}
           options={{headerShown: false}}
         />
