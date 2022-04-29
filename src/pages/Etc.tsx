@@ -1,11 +1,31 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, SafeAreaView} from 'react-native';
+import WebViewScreen from '../components/webview/WebViewScreen';
 
 function Etc() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  function handleLoadProgress({nativeEvent}) {
+    if (nativeEvent.progress !== 1 && isLoading === false) {
+      setIsLoading(true);
+    } else if (nativeEvent.progress === 1) {
+      setIsLoading(false);
+    }
+  }
+
   return (
-    <View>
-      <Text>여긴 뭘넣으면 좋을까 일단 추가함</Text>
-    </View>
+    <SafeAreaView style={{flex: 1}}>
+      <WebViewScreen
+        uri="https://github.com/lyj-ooz"
+        handleLoadProgress={handleLoadProgress}
+      />
+      {isLoading && (
+        <View
+          style={{flex: 10, justifyContent: 'center', alignItems: 'center'}}>
+          <Text>잠시 기다려주세요...</Text>
+        </View>
+      )}
+    </SafeAreaView>
   );
 }
 
