@@ -13,7 +13,7 @@
 앱의 화면들은 아래처럼 크게 4 부분으로 구성되어 있다.
 
 <div style='display: flex'>
-<img src="https://github.com/lyj-ooz/my-screenshots/blob/master/1.png" width="150" height="300"/>
+<img src="https://github.com/lyj-ooz/my-screenshots/blob/master/1e.png" width="150" height="300"/>
 <img src="https://github.com/lyj-ooz/my-screenshots/blob/master/1-1.png" width="150" height="300"/>
 <img src="https://github.com/lyj-ooz/my-screenshots/blob/master/2.png" width="150" height="300"/>
 <img src="https://github.com/lyj-ooz/my-screenshots/blob/master/3.png" width="150" height="300"/>
